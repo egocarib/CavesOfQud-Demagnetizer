@@ -92,6 +92,10 @@ namespace XRL.World.Parts
 
         public bool IsDocileZone()
         {
+            if (this.ParentObject?.CurrentCell?.ParentZone == null)
+            {
+                return false;
+            }
             string zoneID = this.ParentObject.CurrentCell.ParentZone.ZoneID;
             if (!this.DocileZones.ContainsKey(zoneID))
             {
